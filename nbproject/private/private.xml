@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/J:/SHU/CSSD/assaingment%203/project%20java/CSSDSHUProject/src/AccountPackage/AddMember.java</file>
             <file>file:/J:/SHU/CSSD/assaingment%203/project%20java/CSSDSHUProject/src/AccountPackage/ShowUser.java</file>
@@ -9,5 +10,8 @@
             <file>file:/J:/SHU/CSSD/assaingment%203/project%20java/CSSDSHUProject/src/AccountPackage/DataManupulation/User.java</file>
             <file>file:/J:/SHU/CSSD/assaingment%203/project%20java/CSSDSHUProject/src/AccountPackage/DataManupulation/Datamanupulation.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> f1a1ba2bbdc4824ebe3aea3dd72e8aea30b93346
     </open-files>
 </project-private>
