@@ -5,16 +5,23 @@
  */
 package AccountPackage.DataManupulation;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+//import AccountPackage.DataManupulation.User;
 
 /**
  *
  * @author Vanni Kotiyaa
  */
 public class Datamanupulation {
-    //serializtion
+    
+    ArrayList<User> userList = new ArrayList<User> () ;
+    
+    //serializtion user
     public void userSerialization (User user) {
     
         try{
@@ -34,6 +41,31 @@ public class Datamanupulation {
     }
     
     //-------------------------------
+    
+    // Desearlaization member
+    
+    public ArrayList memberDeserialization (){
+        
+        try{
+            
+            FileInputStream userFileInput = new FileInputStream ("User.txt");
+            while(userFileInput.available()> 0 ){
+                ObjectInputStream userInput = new ObjectInputStream (userFileInput);
+                User user = (User) userInput.readObject();
+                
+                if(user != null){
+                    userList.add(user);
+                
+                }
+            }
+        
+        
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    
+        return userList;
+    }
      
     
 }

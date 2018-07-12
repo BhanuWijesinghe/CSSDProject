@@ -22,4 +22,11 @@ public class SetOfUsers implements Serializable {
     
     }
     
+    public void showUser(User user){
+        
+        Datamanupulation showUser =new Datamanupulation();
+        showUser.userSerialization(user );
+    
+    }
+    
 }
