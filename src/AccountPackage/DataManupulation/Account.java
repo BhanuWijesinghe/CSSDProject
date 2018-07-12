@@ -35,8 +35,9 @@ public class Account {
     /**
      * @param balance the balance to set
      */
-    public void setBalance(double balance) {
+    public boolean setBalance(double balance) {
         this.balance = balance;
+        return true;
     }
 
     /**
@@ -107,13 +108,17 @@ public class Account {
          return null;
     }
     
-    public void setAccountDetails( String accountID,String card,double balance,String username,String password, Transaction_History transactionHistory){
+    public void setAccountDetails( String accountID,String username,String password){
            setAccountID(accountID);
-           setCard(card);
-           setBalance(balance);
+//           setCard(card);
+//           setBalance(balance);
            setUsername(username);
            setPassword(password);
-           setTransactionHistory(transactionHistory);
+//           setTransactionHistory(transactionHistory);
+
+
+
+
     }
     
    

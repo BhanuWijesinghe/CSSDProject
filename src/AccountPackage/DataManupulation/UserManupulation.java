@@ -13,7 +13,7 @@ import AccountPackage.DataManupulation.Datamanupulation;
  *
  * @author Vanni Kotiyaa
  */
-public class SetOfUsers implements Serializable {
+public class UserManupulation implements Serializable {
     
     public void addUser(User user){
         
@@ -22,11 +22,11 @@ public class SetOfUsers implements Serializable {
     
     }
     
-    public void showUser(User user){
-        
-        Datamanupulation showUser =new Datamanupulation();
-        showUser.userSerialization(user );
-    
-    }
+//    public void showUser(User user){
+//        
+//        Datamanupulation showUser =new Datamanupulation();
+//        showUser.userSerialization(user );
+//    
+//    }
     
 }

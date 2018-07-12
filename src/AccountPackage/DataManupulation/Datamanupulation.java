@@ -44,7 +44,7 @@ public class Datamanupulation {
     
     // Desearlaization member
     
-    public ArrayList memberDeserialization (){
+    public ArrayList userDeserialization (){
         
         try{
             

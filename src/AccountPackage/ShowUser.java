@@ -144,7 +144,7 @@ public class ShowUser extends javax.swing.JFrame {
 
         ArrayList <User> userList= null;
         Datamanupulation  showUser = new Datamanupulation();
-        userList = showUser.memberDeserialization();
+        userList = showUser.userDeserialization();
         int i =0;
         for(User mk :userList){
             //System.out.println(bk.getMemberNumber());

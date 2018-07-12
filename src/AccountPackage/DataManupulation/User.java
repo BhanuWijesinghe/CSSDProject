@@ -18,7 +18,7 @@ public class User implements Serializable{
      */
      private String userName;
      private String userId ;
-     private String password ;
+     
      private String gender ;
      private String contactNumber ;
      private String email ;
@@ -34,9 +34,7 @@ public class User implements Serializable{
     /**
      * @return the password
      */
-    public String getPassword() {
-        return password;
-    }
+    
 
     /**
      * @return the gender
@@ -97,9 +95,7 @@ public class User implements Serializable{
    public void setUserId(String userIds) {
         this.userId = userIds;
     }
-   public void setPassword(String passwords) {
-        this.password = passwords;
-    }
+   
    public void setGender(String genders) {
         this.gender = genders;
     }  
