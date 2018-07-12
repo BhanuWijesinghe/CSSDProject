@@ -5,11 +5,13 @@
  */
 package AccountPackage.DataManupulation;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Vanni Kotiyaa
  */
-public class Account {
+public class Account implements Serializable{
 
     /**
      * @return the accountID

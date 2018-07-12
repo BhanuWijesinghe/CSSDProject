@@ -20,6 +20,8 @@ import java.util.ArrayList;
 public class Datamanupulation {
     
     ArrayList<User> userList = new ArrayList<User> () ;
+    ArrayList<Account> accountList = new ArrayList<Account>();
+    ArrayList<Employee> employeeList = new ArrayList<Employee>();
     
     //serializtion user
     public void userSerialization (User user) {
@@ -41,6 +43,44 @@ public class Datamanupulation {
     }
     
     //-------------------------------
+    
+    public void accountSerialization (Account account) {
+    
+        try{
+            
+            FileOutputStream accountFileOut = new FileOutputStream("Account.txt",true) ;
+            ObjectOutputStream outputStream = new ObjectOutputStream (accountFileOut);
+            outputStream.writeObject(account);
+            
+            outputStream.close();
+            accountFileOut.close();
+            
+        }catch(IOException i){
+        
+            i.printStackTrace();
+        }      
+    
+    }
+    
+    //-------------------------------
+     public void employeeSerialization (Employee employee) {
+    
+        try{
+            
+            FileOutputStream employeeFileOut = new FileOutputStream("Employee.txt",true) ;
+            ObjectOutputStream outputStream = new ObjectOutputStream (employeeFileOut);
+            outputStream.writeObject(employee);
+            
+            outputStream.close();
+            employeeFileOut.close();
+            
+        }catch(IOException i){
+        
+            i.printStackTrace();
+        }      
+    
+    }
+    
     
     // Desearlaization member
     
@@ -67,5 +107,52 @@ public class Datamanupulation {
         return userList;
     }
      
+ public ArrayList accountDeserialization (){
+        
+        try{
+            
+            FileInputStream accountFileInput = new FileInputStream ("Account.txt");
+            while(accountFileInput.available()> 0 ){
+                ObjectInputStream accountInput = new ObjectInputStream (accountFileInput);
+                Account accounts = (Account) accountInput.readObject();
+                
+                if(accounts != null){
+                    accountList.add(accounts);
+                
+                }
+            }
+        
+        
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    
+        return accountList;
+    }
+     
+public ArrayList employeeDeserialization (){
+        
+        try{
+            
+            FileInputStream employeeFileInput = new FileInputStream ("Employee.txt");
+            while(employeeFileInput.available()> 0 ){
+                ObjectInputStream employeeInput = new ObjectInputStream (employeeFileInput);
+                Employee employee = (Employee) employeeInput.readObject();
+                
+                if(employee != null){
+                    employeeList.add(employee);
+                
+                }
+            }
+        
+        
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    
+        return employeeList;
+    }
+     
+    
     
 }
