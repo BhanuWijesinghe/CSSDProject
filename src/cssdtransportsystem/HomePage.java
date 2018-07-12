@@ -6,6 +6,10 @@
 package cssdtransportsystem;
 
 import AccountPackage.MemberMenu;
+<<<<<<< HEAD
+=======
+import GUI.Login;
+>>>>>>> a3a33a5da7df64d7534a45294c8661e78abe3817
 
 /**
  *
@@ -48,6 +52,14 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Home", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 36), new java.awt.Color(0, 0, 153))); // NOI18N
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Inspector.png"))); // NOI18N
+<<<<<<< HEAD
+=======
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+>>>>>>> a3a33a5da7df64d7534a45294c8661e78abe3817
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/token.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +158,10 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         pack();
+<<<<<<< HEAD
+=======
+        setLocationRelativeTo(null);
+>>>>>>> a3a33a5da7df64d7534a45294c8661e78abe3817
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -163,6 +179,16 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Login ob = new Login();
+        ob.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+>>>>>>> a3a33a5da7df64d7534a45294c8661e78abe3817
     /**
      * @param args the command line arguments
      */

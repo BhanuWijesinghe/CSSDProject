@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 package AccountPackage;
-import AccountPackage.DataManupulation.UserManupulation;
-import AccountPackage.DataManupulation.User;
+
+import AccountPackage.DataManupulation.Datamanupulation;
+import AccountPackage.DataManupulation.Employee;
 import cssdtransportsystem.HomePage;
 
 /**
  *
  * @author Vanni Kotiyaa
  */
-public class AddMember extends javax.swing.JFrame {
+public class AddEmployee extends javax.swing.JFrame {
 
-    User m1;
     /**
-     * CreatSes new form AddMember
+     * Creates new form AddEmployee
      */
-    public AddMember() {
+    public AddEmployee() {
         initComponents();
     }
 
@@ -34,21 +34,15 @@ public class AddMember extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        txtUserId = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        txtname = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        txtempID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtContactNumber = new javax.swing.JTextField();
-        txtemail = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtcity = new javax.swing.JTextField();
-        txtpostalcode = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        txtsalary = new javax.swing.JTextField();
+        txtpermission = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         comboGender = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,7 +50,7 @@ public class AddMember extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4), "Add New User", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Name");
+        jLabel2.setText("Employee ID");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("J:\\SHU\\CSSD\\Library System\\Library System\\icons samples\\back.png")); // NOI18N
@@ -67,10 +61,10 @@ public class AddMember extends javax.swing.JFrame {
             }
         });
 
-        txtUserId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("User ID");
+        jLabel1.setText("Name");
 
         jButton2.setIcon(new javax.swing.ImageIcon("J:\\SHU\\CSSD\\Library System\\Library System\\icons samples\\new us.png")); // NOI18N
         jButton2.setText("Add User");
@@ -80,25 +74,15 @@ public class AddMember extends javax.swing.JFrame {
             }
         });
 
-        txtname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Gender");
+        txtempID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Contact Number");
+        jLabel5.setText("Salary");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("E-Mail");
+        jLabel6.setText("Permission Level");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Address");
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("City");
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Postal Code");
+        jLabel3.setText("Gender");
 
         comboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         comboGender.addActionListener(new java.awt.event.ActionListener() {
@@ -116,38 +100,26 @@ public class AddMember extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 314, Short.MAX_VALUE)
                         .addComponent(jButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtcity)
-                            .addComponent(txtpostalcode)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(99, 99, 99)
-                        .addComponent(comboGender, 0, 271, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtUserId)))
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName)
+                            .addComponent(txtempID)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel3))
                         .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtemail, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtContactNumber)
-                            .addComponent(txtAddress))))
+                            .addComponent(txtpermission, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtsalary)
+                            .addComponent(comboGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,43 +128,29 @@ public class AddMember extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtempID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtUserId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
                     .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtpostalcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(txtpermission, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
-
-        jLabel2.getAccessibleContext().setAccessibleName("User Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,32 +182,23 @@ public class AddMember extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         String Name = txtname.getText().toString();
-         String UserId = txtUserId.getText().toString();
-         
-         String Gender = comboGender.getSelectedItem().toString();
-         String ContactNumber = txtContactNumber.getText().toString();
-         String Email = txtemail.getText().toString();
-         String Address = txtAddress.getText().toString();
-         String City = txtcity.getText().toString();
-         String PostalCode = txtpostalcode.getText().toString();
-         
+        String empid = txtempID.getText().toString();
+        String name = txtName.getText().toString();
 
-         m1 = new User();
-         m1.setUserName(Name);
-         m1.setUserId(UserId);
-         
-         m1.setGender(Gender);
-         m1.setContactNumber(ContactNumber);
-         m1.setEmail(Email);
-         m1.setAddress(Address);
-         m1.setCity(City);
-         m1.setPostalCode(PostalCode);
- 
-         UserManupulation fm1 = new UserManupulation();
+        String gender = comboGender.getSelectedItem().toString();
+        String salary = txtsalary.getText().toString();
+        String permission = txtpermission.getText().toString();
+        
+        Employee m1 = new Employee();
+        m1.setEmployeeID(empid);
+        m1.setName(name);
+        m1.setSalary(salary);
+        m1.setPermissionLevel(permission);
+       
+        Datamanupulation dm = new Datamanupulation();
+        dm.employeeSerialization(m1);
 
-         fm1.addUser(m1);
-
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void comboGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboGenderActionPerformed
@@ -273,20 +222,20 @@ public class AddMember extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddMember().setVisible(true);
+                new AddEmployee().setVisible(true);
             }
         });
     }
@@ -297,19 +246,13 @@ public class AddMember extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtUserId;
-    private javax.swing.JTextField txtcity;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtpostalcode;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtempID;
+    private javax.swing.JTextField txtpermission;
+    private javax.swing.JTextField txtsalary;
     // End of variables declaration//GEN-END:variables
 }
