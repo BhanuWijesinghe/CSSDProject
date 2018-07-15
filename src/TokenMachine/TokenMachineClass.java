@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cssdtransportsystem.TokenMachine;
-import cssdtransportsystem.TokenMachine.Payment;
+package TokenMachine;
+import TokenMachine.Payment;
 /**
  *
  * @author Shakuni
