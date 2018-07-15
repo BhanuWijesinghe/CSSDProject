@@ -21,14 +21,13 @@ public class LoginClass {
     /**
      * @return the userID
      */
-    
     private String userID;
     private String password;
-    
+
     ArrayList<User> userList = new ArrayList();
     ArrayList<Employee> employeeList = new ArrayList();
     ArrayList<Account> accountList = new ArrayList();
-    
+
     public String getUserID() {
         return userID;
     }
@@ -53,48 +52,46 @@ public class LoginClass {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public ArrayList userDesearilized(){
-    
+
+    public ArrayList userDesearilized() {
+
         Datamanupulation dm = new Datamanupulation();
-        ArrayList userlist=dm.userDeserialization();
+        ArrayList userlist = dm.userDeserialization();
         return userlist;
     }
-    
-    public ArrayList employeeDeserilized(){
-    
+
+    public ArrayList employeeDeserilized() {
+
         Datamanupulation dm2 = new Datamanupulation();
         ArrayList employeelist = dm2.employeeDeserialization();
         return employeelist;
-    
+
     }
-    
-    public ArrayList accountDeserialized(){
+
+    public ArrayList accountDeserialized() {
         Datamanupulation dmp = new Datamanupulation();
         ArrayList accountlist = dmp.accountDeserialization();
         return accountlist;
-    
+
     }
-    
-    public boolean validateInputs(String username, String password){
-    
+
+    public boolean validateInputs(String username, String password) {
+
         userList = userDesearilized();
         employeeList = employeeDeserilized();
         accountList = accountDeserialized();
-        
-        for(Account acc:accountList){
-         if((acc.getUsername().equals(username)) && (acc.getPassword().equals(password))){
-             
-             return true;
-         }
-         else{
-           return false;
-         }
-        
+
+        for (Account acc : accountList) {
+            if ((acc.getUsername().equals(username)) && (acc.getPassword().equals(password))) {
+                Login.loggedUser = acc;
+                return true;
+            } else {
+                return false;
+            }
+
         }
-            
-        
-    return false;
+
+        return false;
     }
-    
+
 }
