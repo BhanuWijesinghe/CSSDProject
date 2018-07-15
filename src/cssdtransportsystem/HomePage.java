@@ -151,7 +151,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(727, 681));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
