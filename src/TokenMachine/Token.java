@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cssdtransportsystem.TokenMachine;
+package TokenMachine;
 
 /**
  *
  * @author Shakuni
  */
-class Account {
+class Token {
     
 }

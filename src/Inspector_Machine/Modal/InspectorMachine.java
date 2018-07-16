@@ -22,6 +22,20 @@ import java.util.Date;
 public class InspectorMachine implements Serializable {
 
     /**
+     * @return the tokens
+     */
+    public ArrayList<Token> getTokens() {
+        return tokens;
+    }
+
+    /**
+     * @param tokens the tokens to set
+     */
+    public void setTokens(ArrayList<Token> tokens) {
+        this.tokens = tokens;
+    }
+
+    /**
      * @return the machineId
      */
     public int getMachineId() {
@@ -77,11 +91,15 @@ public class InspectorMachine implements Serializable {
         this.printer = printer;
     }
 
+    public void issueToken(Token token) {
+
+        tokens.add(token);
+    }
+
     private int machineId;
     private Account employee;
     private Account loggedInAccount;
     private Printer printer;
-    
+    private ArrayList<Token> tokens;
 
-    
 }

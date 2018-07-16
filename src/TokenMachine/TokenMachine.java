@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cssdtransportsystem.TokenMachine;
+package TokenMachine;
 
 /**
  *
@@ -16,6 +16,9 @@ public class TokenMachine extends javax.swing.JFrame {
      */
     public TokenMachine() {
         initComponents();
+        TokenMachineUI.removeAll();
+        TokenMachineHome Home = new TokenMachineHome();
+        TokenMachineUI.add(Home).setVisible(true);
     }
 
     /**
@@ -28,7 +31,6 @@ public class TokenMachine extends javax.swing.JFrame {
     private void initComponents() {
 
         TokenMachineUI = new javax.swing.JDesktopPane();
-        Login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,51 +38,26 @@ public class TokenMachine extends javax.swing.JFrame {
         TokenMachineUI.setLayout(TokenMachineUILayout);
         TokenMachineUILayout.setHorizontalGroup(
             TokenMachineUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGap(0, 861, Short.MAX_VALUE)
         );
         TokenMachineUILayout.setVerticalGroup(
             TokenMachineUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 507, Short.MAX_VALUE)
         );
-
-        Login.setText("Login");
-        Login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(TokenMachineUI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+            .addComponent(TokenMachineUI)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TokenMachineUI)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
+            .addComponent(TokenMachineUI)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        TokenMachineUI.removeAll();
-        TokenMachineLogin login = new TokenMachineLogin();
-        TokenMachineUI.add(login).setVisible(true);
-    }//GEN-LAST:event_LoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,7 +95,6 @@ public class TokenMachine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Login;
     private javax.swing.JDesktopPane TokenMachineUI;
     // End of variables declaration//GEN-END:variables
 }
