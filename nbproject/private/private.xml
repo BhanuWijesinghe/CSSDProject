@@ -2,7 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/TransportVehicle/TransportVehicle.java</file>
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/Zones/ZonesClass.java</file>
@@ -19,12 +18,11 @@
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/Stops/Stops.java</file>
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/Zones/Zones.java</file>
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/TransportVehicle/Vehicle.java</file>
+            <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/PaymentPackage/BuyTicket.java</file>
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/Route.java</file>
+            <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/ShowRoute.java</file>
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/Zones/RouteZones.java</file>
             <file>file:/C:/Users/Shakuni/Documents/NetBeansProjects/CSSDTransportSystem/CSSDSHUProject/src/Route/Stops/RouteStops.java</file>
         </group>
-=======
-        <group/>
->>>>>>> 77b690b4ef98f4ede33fb01044e97f2b2df5fab2
     </open-files>
 </project-private>

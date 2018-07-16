@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +44,8 @@ public class RouteClass {
                 }
             }
         }catch(Exception e){
-            e.printStackTrace();
+            //JOptionPane.showMessageDialog(null, e);
+           e.printStackTrace();
         }
         return routeList;
     }

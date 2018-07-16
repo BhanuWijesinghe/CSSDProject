@@ -8,6 +8,7 @@ package Route;
 import Route.JourneyRecord.ShowJourneys;
 import Route.Stops.ShowStops;
 import Route.TransportVehicle.ShowVehicle;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -234,19 +235,74 @@ public class RouteUI extends javax.swing.JFrame {
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         String RID = routeID.getText().toString();
         String Name = name.getText().toString();
+        //int stopIndex = routeStopsTable.getRowCount();
+        Object [][] stops = new Object[routeStopsTable.getRowCount()][5];
+        for(int i = 0; i< routeStopsTable.getRowCount(); i++){
+            for(int y=0;y<5;y++){
+                stops[i][y] = routeStopsTable.getValueAt(i, y);
+            }                     
+        }
+//        Object [] stops = new Object[5];
+//        for(int i = 0; i< stopIndex; i++){
+//            stops[0] = routeStopsTable.getValueAt(i, 0);
+//            stops[1] = routeStopsTable.getValueAt(i, 1);
+//            stops[2] = routeStopsTable.getValueAt(i, 2);
+//            stops[3] = routeStopsTable.getValueAt(i, 3);
+//            stops[4] = routeStopsTable.getValueAt(i, 4);
+//        }
+        //int journeyIndex = routeStopsTable.getRowCount();
+        Object [][] journey = new Object[routeStopsTable.getRowCount()][5];
+        for(int i = 0; i< routeStopsTable.getRowCount(); i++){
+            for(int y=0;y<5;y++){
+                journey[i][y] = routeStopsTable.getValueAt(i, y);
+            }
+        }
+//        Object [] journey = new Object[6];
+//        for(int i = 0; i< journeyIndex; i++){
+//            journey[0] = routeJourneyTable.getValueAt(i, 0);
+//            journey[1] = routeJourneyTable.getValueAt(i, 1);
+//            journey[2] = routeJourneyTable.getValueAt(i, 2);
+//            journey[3] = routeJourneyTable.getValueAt(i, 3);
+//            journey[4] = routeJourneyTable.getValueAt(i, 4);
+//            journey[5] = routeJourneyTable.getValueAt(i, 5);
+//        }
+        //int vehicleIndex = routeStopsTable.getRowCount();
+        Object [][] vehicle = new Object[routeStopsTable.getRowCount()][2];
+        for(int i = 0; i< routeStopsTable.getRowCount(); i++){
+            for(int y=0;y<2;y++){
+                vehicle[i][y] = routeStopsTable.getValueAt(i, y);
+            }                      
+        }
+//        Object [] vehicle = new Object[3];
+//        for(int i = 0; i< vehicleIndex; i++){
+//            vehicle[0] = vehicleTable.getValueAt(i, 0);
+//            vehicle[1] = vehicleTable.getValueAt(i, 1);
+//        }
+        Route route = new Route();
+        route.setRoute(RID, Name, stops, journey, vehicle);
+        
+        RouteClass routeClass = new RouteClass();
+        routeClass.routeSerialization(route);
+        JOptionPane.showMessageDialog(null, "Route added");
         
     }//GEN-LAST:event_saveActionPerformed
-    public void setStops(Object[] rowValue) {
-        DefaultTableModel model = (DefaultTableModel) routeStopsTable.getModel();
-        model.addRow(rowValue);
+    public void setStops(Object[][] rowValue) {
+        for(Object[] record:rowValue){
+            DefaultTableModel model = (DefaultTableModel) routeStopsTable.getModel();
+            model.addRow(record);
+        }
     }
-    public void setJourneys(Object[] rowValue) {
-        DefaultTableModel journeyModel = (DefaultTableModel) routeJourneyTable.getModel();
-        journeyModel.addRow(rowValue);
+    public void setJourneys(Object[][] rowValue) {
+        for(Object[] record:rowValue){
+            DefaultTableModel journeyModel = (DefaultTableModel) routeJourneyTable.getModel();
+            journeyModel.addRow(record);
+        }
     }
-    public void setVehicles(Object[] rowValue) {
-        DefaultTableModel vehicleModel = (DefaultTableModel) vehicleTable.getModel();
-        vehicleModel.addRow(rowValue);
+    public void setVehicles(Object[][] rowValue) {
+        for(Object[] record:rowValue){
+            DefaultTableModel vehicleModel = (DefaultTableModel) vehicleTable.getModel();
+            vehicleModel.addRow(record);
+        }
     }
     /**
      * @param args the command line arguments

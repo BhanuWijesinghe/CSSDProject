@@ -30,10 +30,13 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         Login = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 36)); // NOI18N
-        jLabel1.setText("Token Machine");
+        jLabel1.setFont(new java.awt.Font("Open Sans Extrabold", 1, 48)); // NOI18N
+        jLabel1.setText("# TravelAnyWhere");
 
+        Login.setBackground(new java.awt.Color(0, 204, 0));
+        Login.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
         Login.setText("Login");
         Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -41,34 +44,42 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Search Journey");
+        jButton1.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
+        jButton1.setText("Guest");
+
+        jLabel2.setFont(new java.awt.Font("Open Sans", 0, 24)); // NOI18N
+        jLabel2.setText("Lets go on an adventure");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(152, 152, 152)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jLabel1))
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(Login))))
-                .addContainerGap(264, Short.MAX_VALUE))
+                        .addGap(147, 147, 147)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(61, 61, 61)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addComponent(Login)
-                .addGap(45, 45, 45)
-                .addComponent(jButton1)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(86, 86, 86)
+                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         pack();
@@ -76,9 +87,9 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         // TODO add your handling code here:
-        TokenMachineLogin machineLogin=new TokenMachineLogin();
-        machineLogin.setVisible(true);
-        getParent().add(machineLogin);
+        TokenMachineLoginOption machineLoginOption=new TokenMachineLoginOption();
+        machineLoginOption.setVisible(true);
+        getParent().add(machineLoginOption);
         getParent().remove(this);
     }//GEN-LAST:event_LoginActionPerformed
 
@@ -87,5 +98,6 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
     private javax.swing.JButton Login;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

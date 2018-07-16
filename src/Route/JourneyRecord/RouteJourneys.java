@@ -241,18 +241,27 @@ public class RouteJourneys extends javax.swing.JFrame {
         String transport=trnsportType.getText().toString();
         int cost=Integer.parseInt(addCost.getText().toString());
         
-        int index = stopsDetails.getRowCount();
-        Object [] row = new Object[5];
-        for(int i = 0; i< index; i++){
-            row[0] = stopsDetails.getValueAt(i, 0);
-            row[1] = stopsDetails.getValueAt(i, 1);
-            row[2] = stopsDetails.getValueAt(i, 2);
-            row[3] = stopsDetails.getValueAt(i, 3);
-            row[4] = stopsDetails.getValueAt(i, 4);
+//        int index = stopsDetails.getRowCount();
+//        Object [] row = new Object[5];
+//        for(int i = 0; i< index; i++){
+//            row[0] = stopsDetails.getValueAt(i, 0);
+//            row[1] = stopsDetails.getValueAt(i, 1);
+//            row[2] = stopsDetails.getValueAt(i, 2);
+//            row[3] = stopsDetails.getValueAt(i, 3);
+//            row[4] = stopsDetails.getValueAt(i, 4);
+//        }
+        
+        
+        Object [][] rows = new Object[stopsDetails.getRowCount()][5];
+        for(int i = 0; i< stopsDetails.getRowCount(); i++){
+            for(int y=0;y<5;y++){
+                rows[i][y] = stopsDetails.getValueAt(i, y);
+            }
+                       
         }
         JourneyRecord journeyRecode = new JourneyRecord();
         //Stops stops = new Stops();
-        journeyRecode.setJourney(source, destination, row, date, time, transport, cost);
+        journeyRecode.setJourney(source, destination, rows, date, time, transport, cost);
         
         JourneyRecordClass journeyRecordClass = new JourneyRecordClass();
         journeyRecordClass.journeyRecordSerialization(journeyRecode);
@@ -270,9 +279,12 @@ public class RouteJourneys extends javax.swing.JFrame {
     public void setDistinationID(String DestinationID){
         destinationStop.setText(DestinationID);
     }
-    public void setStops(Object [] row){
-        DefaultTableModel model = (DefaultTableModel) stopsDetails.getModel();
-        model.addRow(row);
+    public void setStops(Object [][] row){
+        for(Object[] record:row){
+            DefaultTableModel model = (DefaultTableModel) stopsDetails.getModel();
+             model.addRow(record);
+        }
+        
     }
     /**
      * @param args the command line arguments

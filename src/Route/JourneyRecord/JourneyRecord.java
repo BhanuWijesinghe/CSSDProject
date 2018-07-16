@@ -19,7 +19,7 @@ public class JourneyRecord implements Serializable{
     private String Source_Stop;
     private String Destination_Stops;
     //private Stops stops;
-    private Object row;
+    private Object[][] row;
     private String Date;
     private String Time;
     private String Transport_Type;
@@ -40,12 +40,12 @@ public class JourneyRecord implements Serializable{
     public void setDestination_Stops(String Destination_Stops) {
         this.Destination_Stops = Destination_Stops;
     }
-    public Object getRow() {
+    public Object[][] getRow() {
         return row;
     }
 
     //private Stops Stops;
-    public void setRow(Object row) {
+    public void setRow(Object[][] row) {
         this.row = row;
     }
 //    public Stops getStops() {
@@ -87,7 +87,7 @@ public class JourneyRecord implements Serializable{
     public void setCost(int Cost) {
         this.Cost = Cost;
     }
-    public void setJourney(String sourceStop, String destinationStop, Object stop, String date, String time, String transportType, int cost){
+    public void setJourney(String sourceStop, String destinationStop, Object[][] stop, String date, String time, String transportType, int cost){
         setSource_Stop(sourceStop);
         setDestination_Stops(destinationStop);
         setRow(stop);

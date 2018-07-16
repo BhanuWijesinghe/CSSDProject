@@ -268,13 +268,11 @@ public class ShowStops extends javax.swing.JFrame {
 
     private void selectStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectStopActionPerformed
         int [] index = stopsTable.getSelectedRows();
-        Object [] rowValue = new Object[5];
+        Object [][] rowValue = new Object[index.length][5];
         for(int i = 0; i< index.length; i++){
-            rowValue[0] = stopsTable.getValueAt(index[i], 0);
-            rowValue[1] = stopsTable.getValueAt(index[i], 1);
-            rowValue[2] = stopsTable.getValueAt(index[i], 2);
-            rowValue[3] = stopsTable.getValueAt(index[i], 3);
-            rowValue[4] = stopsTable.getValueAt(index[i], 4);
+            for(int y=0;y<5;y++){
+                rowValue[i][y] = stopsTable.getValueAt(index[i], y);
+            }            
         }
         routeJourney.setStops(rowValue);
         this.setVisible(false);
@@ -282,14 +280,20 @@ public class ShowStops extends javax.swing.JFrame {
 
     private void RouteStopsSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RouteStopsSelectActionPerformed
         int [] index = stopsTable.getSelectedRows();
-        Object [] rowValue = new Object[5];
+        Object [][] rowValue = new Object[index.length][5];
         for(int i = 0; i< index.length; i++){
-            rowValue[0] = stopsTable.getValueAt(index[i], 0);
-            rowValue[1] = stopsTable.getValueAt(index[i], 1);
-            rowValue[2] = stopsTable.getValueAt(index[i], 2);
-            rowValue[3] = stopsTable.getValueAt(index[i], 3);
-            rowValue[4] = stopsTable.getValueAt(index[i], 4);
+            for(int y=0;y<5;y++){
+                rowValue[i][y] = stopsTable.getValueAt(index[i], y);
+            }            
         }
+//        Object [] rowValue = new Object[5];
+//        for(int i = 0; i< index.length; i++){
+//            rowValue[0] = stopsTable.getValueAt(index[i], 0);
+//            rowValue[1] = stopsTable.getValueAt(index[i], 1);
+//            rowValue[2] = stopsTable.getValueAt(index[i], 2);
+//            rowValue[3] = stopsTable.getValueAt(index[i], 3);
+//            rowValue[4] = stopsTable.getValueAt(index[i], 4);
+//        }
         routeUI.setStops(rowValue);
         this.setVisible(false);
     }//GEN-LAST:event_RouteStopsSelectActionPerformed

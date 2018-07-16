@@ -7,6 +7,7 @@ package Route.JourneyRecord;
 
 import Route.RouteUI;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,10 +19,9 @@ public class ShowJourneys extends javax.swing.JFrame {
      * Creates new form ShowJourneys
      */
     RouteUI routeUI = new RouteUI();
-    
+    ArrayList <JourneyRecord> journeyList= null;
     public ShowJourneys(RouteUI frame) {
-        initComponents();
-        ArrayList <JourneyRecord> journeyList= null;
+        initComponents();       
         JourneyRecordClass journeyRecordClass = new JourneyRecordClass();
         journeyList = journeyRecordClass.journeyRecordDeserialization();
         int i =0;
@@ -42,7 +42,7 @@ public class ShowJourneys extends javax.swing.JFrame {
     
     public ShowJourneys() {
         initComponents();
-        ArrayList <JourneyRecord> journeyList= null;
+      //  ArrayList <JourneyRecord> journeyList= null;
         JourneyRecordClass journeyRecordClass = new JourneyRecordClass();
         journeyList = journeyRecordClass.journeyRecordDeserialization();
         int i =0;
@@ -53,7 +53,7 @@ public class ShowJourneys extends javax.swing.JFrame {
             journeyTable.setValueAt(mk.getDate(), i, 2);
             journeyTable.setValueAt(mk.getTime(), i, 3);
             journeyTable.setValueAt(mk.getTransport_Type(), i, 4);
-            journeyTable.setValueAt(mk.getCost(), i, 5);
+            journeyTable.setValueAt(mk.getCost(), i, 5);           
             //journeyTable.setValueAt(mk.getRow(), i, 6);
             i++;
         }
@@ -74,36 +74,43 @@ public class ShowJourneys extends javax.swing.JFrame {
         journeyTable = new javax.swing.JTable();
         SelectJourneyPanel = new javax.swing.JPanel();
         journeySelect = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        stopTabel = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         journeyTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Source Stop", "Destination Stop", "Date", "Time", "Transport Type", "Cost", "stop"
+                "Source Stop", "Destination Stop", "Date", "Time", "Transport Type", "Cost"
             }
         ));
+        journeyTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                journeyTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(journeyTable);
 
         journeySelect.setText("Select Journey");
@@ -118,17 +125,27 @@ public class ShowJourneys extends javax.swing.JFrame {
         SelectJourneyPanelLayout.setHorizontalGroup(
             SelectJourneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SelectJourneyPanelLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(107, 107, 107)
                 .addComponent(journeySelect)
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         SelectJourneyPanelLayout.setVerticalGroup(
             SelectJourneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SelectJourneyPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(26, 26, 26)
                 .addComponent(journeySelect)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
+
+        stopTabel.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Stop ID", "Zone ID", "Name", "Latitude", "Longitude"
+            }
+        ));
+        jScrollPane2.setViewportView(stopTabel);
 
         javax.swing.GroupLayout JourneyPanelLayout = new javax.swing.GroupLayout(JourneyPanel);
         JourneyPanel.setLayout(JourneyPanelLayout);
@@ -136,22 +153,28 @@ public class ShowJourneys extends javax.swing.JFrame {
             JourneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JourneyPanelLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(JourneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JourneyPanelLayout.createSequentialGroup()
-                        .addComponent(SelectJourneyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(126, Short.MAX_VALUE))
-                    .addGroup(JourneyPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(126, 126, 126))))
+                .addComponent(SelectJourneyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JourneyPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         JourneyPanelLayout.setVerticalGroup(
             JourneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JourneyPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JourneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JourneyPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JourneyPanelLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(SelectJourneyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,7 +183,7 @@ public class ShowJourneys extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(JourneyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,18 +197,47 @@ public class ShowJourneys extends javax.swing.JFrame {
 
     private void journeySelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_journeySelectActionPerformed
         int [] index = journeyTable.getSelectedRows();
-        Object [] rowValue = new Object[6];
+        Object [][] rowValue = new Object[index.length][6];
         for(int i = 0; i< index.length; i++){
-            rowValue[0] = journeyTable.getValueAt(index[i], 0);
-            rowValue[1] = journeyTable.getValueAt(index[i], 1);
-            rowValue[2] = journeyTable.getValueAt(index[i], 2);
-            rowValue[3] = journeyTable.getValueAt(index[i], 3);
-            rowValue[4] = journeyTable.getValueAt(index[i], 4);
-            rowValue[5] = journeyTable.getValueAt(index[i], 5);
+            for(int y=0;y<6;y++){
+                rowValue[i][y] = journeyTable.getValueAt(index[i], y);
+            }            
         }
+//        Object [] rowValue = new Object[6];
+//        for(int i = 0; i< index.length; i++){
+//            rowValue[0] = journeyTable.getValueAt(index[i], 0);
+//            rowValue[1] = journeyTable.getValueAt(index[i], 1);
+//            rowValue[2] = journeyTable.getValueAt(index[i], 2);
+//            rowValue[3] = journeyTable.getValueAt(index[i], 3);
+//            rowValue[4] = journeyTable.getValueAt(index[i], 4);
+//            rowValue[5] = journeyTable.getValueAt(index[i], 5);
+//        }
         routeUI.setJourneys(rowValue);
         this.setVisible(false);
     }//GEN-LAST:event_journeySelectActionPerformed
+
+    private void journeyTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_journeyTableMouseClicked
+        DefaultTableModel stopmodel = (DefaultTableModel) stopTabel.getModel();
+        int x = stopmodel.getRowCount();
+        for(int t=x-1;t>=0;t--){
+            stopmodel.removeRow(t);
+        }
+        int i = journeyTable.getSelectedRow();
+        ArrayList <JourneyRecord> journeyLis1t= journeyList;
+        
+        //journeyList.get(i).getRow();
+        for(Object[] mk :journeyList.get(i).getRow()){
+        //Object[][] stops = mk.getRow();
+            //for(int y =0;y<stops.length;y++){
+                //for(Object[] record:stops){
+                   DefaultTableModel model = (DefaultTableModel) stopTabel.getModel();
+                      model.addRow(mk);
+                //}
+            //}
+        }
+        //Object [][] stop = ;
+        //journeyList.get(i);
+    }//GEN-LAST:event_journeyTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -226,7 +278,9 @@ public class ShowJourneys extends javax.swing.JFrame {
     private javax.swing.JPanel JourneyPanel;
     private javax.swing.JPanel SelectJourneyPanel;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton journeySelect;
     private javax.swing.JTable journeyTable;
+    private javax.swing.JTable stopTabel;
     // End of variables declaration//GEN-END:variables
 }

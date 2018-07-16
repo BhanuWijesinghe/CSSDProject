@@ -15,9 +15,9 @@ public class Route implements Serializable{
     
     private String RouteID;
     private String Name;
-    private Object Stops;
-    private Object Journeys;
-    private Object Vehicles;
+    private Object[][] Stops;
+    private Object[][] Journeys;
+    private Object[][] Vehicles;
     
     public String getRouteID() {
         return RouteID;
@@ -35,30 +35,30 @@ public class Route implements Serializable{
         this.Name = Name;
     }
 
-    public Object getStops() {
+    public Object[][] getStops() {
         return Stops;
     }
 
-    public void setStops(Object Stops) {
+    public void setStops(Object[][] Stops) {
         this.Stops = Stops;
     }
 
-    public Object getJourneys() {
+    public Object[][] getJourneys() {
         return Journeys;
     }
 
-    public void setJourneys(Object Journeys) {
+    public void setJourneys(Object[][] Journeys) {
         this.Journeys = Journeys;
     }
 
-    public Object getVehicles() {
+    public Object[][] getVehicles() {
         return Vehicles;
     }
 
-    public void setVehicles(Object Vehicles) {
+    public void setVehicles(Object[][] Vehicles) {
         this.Vehicles = Vehicles;
     }
-    public void setRoute(String routeID, String name, Object stops, Object journeys, Object vehicle){
+    public void setRoute(String routeID, String name, Object[][] stops, Object[][] journeys, Object[][] vehicle){
         setRouteID(routeID);
         setName(name);
         setStops(stops);

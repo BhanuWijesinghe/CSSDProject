@@ -157,11 +157,17 @@ public class ShowVehicle extends javax.swing.JFrame {
 
     private void vehicleSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleSelectActionPerformed
         int [] index = vehicleTable.getSelectedRows();
-        Object [] rowValue = new Object[3];
+        Object [][] rowValue = new Object[index.length][2];
         for(int i = 0; i< index.length; i++){
-            rowValue[0] = vehicleTable.getValueAt(index[i], 0);
-            rowValue[1] = vehicleTable.getValueAt(index[i], 1);
+            for(int y=0;y<2;y++){
+                rowValue[i][y] = vehicleTable.getValueAt(index[i], y);
+            }            
         }
+//        Object [] rowValue = new Object[3];
+//        for(int i = 0; i< index.length; i++){
+//            rowValue[0] = vehicleTable.getValueAt(index[i], 0);
+//            rowValue[1] = vehicleTable.getValueAt(index[i], 1);
+//        }
         routeUI.setVehicles(rowValue);
         this.setVisible(false);
     }//GEN-LAST:event_vehicleSelectActionPerformed
