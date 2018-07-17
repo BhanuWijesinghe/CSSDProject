@@ -7,6 +7,8 @@ package TokenMachine;
 import AccountPackage.DataManupulation.Datamanupulation;
 import AccountPackage.DataManupulation.User;
 import GUI.LoginClass;
+import Route.JourneyRecord.JourneyRecord;
+import Route.JourneyRecord.JourneyRecordClass;
 import TokenMachine.Payment;
 import TokenMachine.userUI.logedUserUI;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import javax.swing.JOptionPane;
 public class TokenMachineClass {
     
     ArrayList <User> userList= null;
+    ArrayList <JourneyRecord> journeyList= null;
     
     private static String UserID ;
 
@@ -58,8 +61,34 @@ public class TokenMachineClass {
         setUserID(null);
         setUserName(null);
     }
-    public String searchJourneys(String Source, String Location){
-        return null;
+    public ArrayList<JourneyRecord> searchJourneys(String Source, String Location){
+        JourneyRecordClass JRClass = new JourneyRecordClass();
+        journeyList=JRClass.journeyRecordDeserialization();
+        ArrayList<JourneyRecord> recordList=new ArrayList<>();
+        int sourceIndex=-1;
+        int index=0;
+        int destIndex=-1;
+        for(JourneyRecord Jr : journeyList){
+            for(Object[] row:Jr.getRow()){
+                if(sourceIndex==-1){
+                    if(row[0].toString().equals(Source)){
+                        sourceIndex=index;
+                    }
+                }else if(destIndex==-1){
+                     if(row[0].toString().equals(Location)){
+                        destIndex=index;
+                    }
+                }
+                
+                ++index;
+            }
+            if(sourceIndex!=-1 & destIndex!=-1){
+                   recordList.add(Jr);
+            }
+            sourceIndex=-1; 
+            destIndex=-1;
+        }
+        return recordList;
     }
     public String buyToken( Payment Payment,String Source, String Location, String date, String Time){
         return null;
@@ -86,7 +115,7 @@ public class TokenMachineClass {
     }
     public void acceptCash(){
     }
-    public boolean validateCashPatment(Payment Payment){
+    public boolean validateCashPatment(Payment payment){
         return true;
     }
     public Payment createPaymentObject(){

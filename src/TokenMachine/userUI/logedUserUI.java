@@ -52,6 +52,11 @@ public class logedUserUI extends javax.swing.JInternalFrame {
         uname.setText("Name");
 
         searchJourney.setText("Search Journey");
+        searchJourney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJourneyActionPerformed(evt);
+            }
+        });
 
         accSettings.setText("Account Settings");
 
@@ -112,6 +117,13 @@ public class logedUserUI extends javax.swing.JInternalFrame {
         getParent().add(TMHome);
         getParent().remove(this);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void searchJourneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJourneyActionPerformed
+        searchJourney SJourney = new searchJourney();
+        SJourney.setVisible(true);
+        getParent().add(SJourney);
+        getParent().remove(this);
+    }//GEN-LAST:event_searchJourneyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
