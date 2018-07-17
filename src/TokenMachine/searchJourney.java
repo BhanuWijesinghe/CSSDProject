@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cssdtransportsystem.TokenMachine;
+package TokenMachine;
 
 /**
  *
  * @author Shakuni
  */
-public class TokenMachineLogin extends javax.swing.JInternalFrame {
+public class searchJourney extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form TokenMachineLogin
+     * Creates new form searchJourney
      */
-    public TokenMachineLogin() {
+    public searchJourney() {
         initComponents();
     }
 

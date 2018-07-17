@@ -13,6 +13,8 @@ import cssdtransportsystem.HomePage;
  */
 public class Login extends javax.swing.JFrame {
 
+    public static AccountPackage.DataManupulation.Account loggedUser;
+    
     /**
      * Creates new form Login
      */
@@ -155,6 +157,8 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -190,6 +194,8 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

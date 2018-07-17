@@ -5,62 +5,101 @@
  */
 package Inspector_Machine.Modal;
 
+import AccountPackage.DataManupulation.Account;
+import AccountPackage.DataManupulation.Employee;
+import AccountPackage.DataManupulation.User;
+import GUI.Login;
+import GUI.LoginClass;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  *
  * @author hp
  */
-public class InspectorMachine implements Serializable{
-    
-    int machineId;
-    int employeeId;
-    Object loggedInAccount;
-    Object paymentCardReader;
-    Object printer;
-    
-    void login(){
-    
+public class InspectorMachine implements Serializable {
+
+    /**
+     * @return the tokens
+     */
+    public ArrayList<Token> getTokens() {
+        return tokens;
     }
-    
-    void logout(){
-    
+
+    /**
+     * @param tokens the tokens to set
+     */
+    public void setTokens(ArrayList<Token> tokens) {
+        this.tokens = tokens;
     }
-    
-    void issueToken(){
+
+    /**
+     * @return the machineId
+     */
+    public int getMachineId() {
+        return machineId;
     }
-    
-    void issueFine(){
-        
+
+    /**
+     * @param machineId the machineId to set
+     */
+    public void setMachineId(int machineId) {
+        this.machineId = machineId;
     }
-    
-    void createException(){
-        
+
+    /**
+     * @return the employee
+     */
+    public Account getEmployee() {
+        return employee;
     }
-    
-    void searchJourneys(String source,String location){
-        
+
+    /**
+     * @param employee the employee to set
+     */
+    public void setEmployee(Account employee) {
+        this.employee = employee;
     }
-    
-    void validateToken(){
-        
+
+    /**
+     * @return the loggedInAccount
+     */
+    public Account getLoggedInAccount() {
+        return loggedInAccount;
     }
-    
-    void setLoggedInUser(){
-        
+
+    /**
+     * @param loggedInAccount the loggedInAccount to set
+     */
+    public void setLoggedInAccount(Account loggedInAccount) {
+        this.loggedInAccount = loggedInAccount;
     }
-    
-    void updateDisplay(){
-        
+
+    /**
+     * @return the printer
+     */
+    public Printer getPrinter() {
+        return printer;
     }
-    
-    void buyToken(double payment,String source,String destination,Date date,Time time){
-        
+
+    /**
+     * @param printer the printer to set
+     */
+    public void setPrinter(Printer printer) {
+        this.printer = printer;
     }
-    
-    void createPaymentObject(){
-        
+
+    public void issueToken(Token token) {
+
+        tokens.add(token);
     }
+
+    private int machineId;
+    private Account employee;
+    private Account loggedInAccount;
+    private Printer printer;
+    private ArrayList<Token> tokens;
+
 }
