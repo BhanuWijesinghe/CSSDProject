@@ -1,0 +1,552 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Route.Stops;
+
+import Inspector_Machine.Action;
+import Route.JourneyRecord.RouteJourneys;
+import Route.RouteUI;
+import TokenMachine.userUI.searchJourney;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Shakuni
+ */
+public class ShowStops extends javax.swing.JFrame {
+
+    /**
+     * Creates new form ShowStops
+     */
+    RouteJourneys routeJourney;
+    RouteUI routeUI;
+    Action acc;
+    searchJourney SJourney;
+    
+    public ShowStops(RouteJourneys frame) {
+        initComponents();
+        ArrayList <Stops> stopsList= null;
+        StopsClass  stopsClass = new StopsClass();
+        stopsList = stopsClass.stopsDeserialization();
+        int i =0;
+        for(Stops mk :stopsList){
+            
+            stopsTable.setValueAt(mk.getStopID(), i, 0);
+            stopsTable.setValueAt(mk.getZoneID(), i, 1);
+            stopsTable.setValueAt(mk.getName(), i, 2);
+            stopsTable.setValueAt(mk.getLatitude(), i, 3);
+            stopsTable.setValueAt(mk.getLongitude(), i, 4);
+            i++;
+        }
+        this.routeJourney=frame;
+        StopsPanel.add(journeyPanel);
+        StopsPanel.remove(accPanel);
+        StopsPanel.remove(routeUIPanel);
+        StopsPanel.remove(SJPanel);
+        StopsPanel.remove(homePanel);
+        
+    }
+    public ShowStops(RouteUI frame2) {
+        initComponents();
+        ArrayList <Stops> stopsList= null;
+        StopsClass  stopsClass = new StopsClass();
+        stopsList = stopsClass.stopsDeserialization();
+        int i =0;
+        for(Stops mk :stopsList){
+            
+            stopsTable.setValueAt(mk.getStopID(), i, 0);
+            stopsTable.setValueAt(mk.getZoneID(), i, 1);
+            stopsTable.setValueAt(mk.getName(), i, 2);
+            stopsTable.setValueAt(mk.getLatitude(), i, 3);
+            stopsTable.setValueAt(mk.getLongitude(), i, 4);
+            i++;
+        }
+        this.routeUI=frame2;
+        StopsPanel.remove(accPanel);
+        StopsPanel.remove(SJPanel);
+        StopsPanel.remove(journeyPanel);
+        StopsPanel.add(routeUIPanel);
+        StopsPanel.remove(homePanel);
+
+    }
+    public ShowStops(Action frame3) {
+        initComponents();
+        ArrayList <Stops> stopsList= null;
+        StopsClass  stopsClass = new StopsClass();
+        stopsList = stopsClass.stopsDeserialization();
+        int i =0;
+        for(Stops mk :stopsList){
+
+            stopsTable.setValueAt(mk.getStopID(), i, 0);
+            stopsTable.setValueAt(mk.getZoneID(), i, 1);
+            stopsTable.setValueAt(mk.getName(), i, 2);
+            stopsTable.setValueAt(mk.getLatitude(), i, 3);
+            stopsTable.setValueAt(mk.getLongitude(), i, 4);
+            i++;
+        }
+        this.acc=frame3;
+        StopsPanel.add(accPanel);
+        StopsPanel.remove(journeyPanel);
+        StopsPanel.remove(routeUIPanel);
+        StopsPanel.remove(SJPanel);
+        StopsPanel.remove(homePanel);
+
+    }
+    public ShowStops(searchJourney frame4) {
+        initComponents();
+        ArrayList <Stops> stopsList= null;
+        StopsClass  stopsClass = new StopsClass();
+        stopsList = stopsClass.stopsDeserialization();
+        int i =0;
+        for(Stops mk :stopsList){
+
+            stopsTable.setValueAt(mk.getStopID(), i, 0);
+            stopsTable.setValueAt(mk.getZoneID(), i, 1);
+            stopsTable.setValueAt(mk.getName(), i, 2);
+            stopsTable.setValueAt(mk.getLatitude(), i, 3);
+            stopsTable.setValueAt(mk.getLongitude(), i, 4);
+            i++;
+        }
+        this.SJourney=frame4;
+        StopsPanel.add(SJPanel);
+        StopsPanel.remove(journeyPanel);
+        StopsPanel.remove(routeUIPanel);
+        StopsPanel.remove(accPanel);
+        StopsPanel.remove(homePanel);
+    }
+    
+    public ShowStops() {
+        initComponents();
+        ArrayList <Stops> stopsList= null;
+        StopsClass  stopsClass = new StopsClass();
+        stopsList = stopsClass.stopsDeserialization();
+        int i =0;
+        for(Stops mk :stopsList){
+
+            stopsTable.setValueAt(mk.getStopID(), i, 0);
+            stopsTable.setValueAt(mk.getZoneID(), i, 1);
+            stopsTable.setValueAt(mk.getName(), i, 2);
+            stopsTable.setValueAt(mk.getLatitude(), i, 3);
+            stopsTable.setValueAt(mk.getLongitude(), i, 4);
+            i++;
+        }
+        StopsPanel.remove(journeyPanel);
+        StopsPanel.remove(routeUIPanel);
+        StopsPanel.remove(accPanel);
+        StopsPanel.remove(SJPanel);
+        StopsPanel.add(homePanel);
+
+    }
+
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        StopsPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        stopsTable = new javax.swing.JTable();
+        journeyPanel = new javax.swing.JPanel();
+        destinationStop = new javax.swing.JButton();
+        selectStop = new javax.swing.JButton();
+        sourceStop = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        accPanel = new javax.swing.JPanel();
+        setAccStart = new javax.swing.JButton();
+        setAccDestination = new javax.swing.JButton();
+        routeUIPanel = new javax.swing.JPanel();
+        RouteStopsSelect = new javax.swing.JButton();
+        SJPanel = new javax.swing.JPanel();
+        searchJStart = new javax.swing.JButton();
+        searchJEnd = new javax.swing.JButton();
+        homePanel = new javax.swing.JPanel();
+        home = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        stopsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Stop ID", "Zone ID", "Name", "Latitude", "Longitude"
+            }
+        ));
+        jScrollPane1.setViewportView(stopsTable);
+
+        destinationStop.setText("Set Destination Stop");
+        destinationStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinationStopActionPerformed(evt);
+            }
+        });
+
+        selectStop.setText("Select Stops");
+        selectStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectStopActionPerformed(evt);
+            }
+        });
+
+        sourceStop.setText("Set Source Stop");
+        sourceStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sourceStopActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout journeyPanelLayout = new javax.swing.GroupLayout(journeyPanel);
+        journeyPanel.setLayout(journeyPanelLayout);
+        journeyPanelLayout.setHorizontalGroup(
+            journeyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(journeyPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sourceStop)
+                .addGap(52, 52, 52)
+                .addComponent(destinationStop)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(selectStop, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        journeyPanelLayout.setVerticalGroup(
+            journeyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(journeyPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(journeyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectStop)
+                    .addComponent(sourceStop)
+                    .addComponent(destinationStop))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        jLabel10.setFont(new java.awt.Font("Open Sans Extrabold", 1, 48)); // NOI18N
+        jLabel10.setText("# TravelAnyWhere");
+
+        accPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        setAccStart.setText("Start station");
+        setAccStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setAccStartActionPerformed(evt);
+            }
+        });
+        accPanel.add(setAccStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        setAccDestination.setText("End station");
+        setAccDestination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setAccDestinationActionPerformed(evt);
+            }
+        });
+        accPanel.add(setAccDestination, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        RouteStopsSelect.setText("Select Stop");
+        RouteStopsSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RouteStopsSelectActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout routeUIPanelLayout = new javax.swing.GroupLayout(routeUIPanel);
+        routeUIPanel.setLayout(routeUIPanelLayout);
+        routeUIPanelLayout.setHorizontalGroup(
+            routeUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(routeUIPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(RouteStopsSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        routeUIPanelLayout.setVerticalGroup(
+            routeUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, routeUIPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RouteStopsSelect)
+                .addContainerGap())
+        );
+
+        searchJStart.setText("Start Station");
+        searchJStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJStartActionPerformed(evt);
+            }
+        });
+
+        searchJEnd.setText("End Station");
+        searchJEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJEndActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SJPanelLayout = new javax.swing.GroupLayout(SJPanel);
+        SJPanel.setLayout(SJPanelLayout);
+        SJPanelLayout.setHorizontalGroup(
+            SJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SJPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(SJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(searchJStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchJEnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        SJPanelLayout.setVerticalGroup(
+            SJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(searchJStart)
+                .addGap(18, 18, 18)
+                .addComponent(searchJEnd)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        home.setText("Home");
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
+        homePanel.setLayout(homePanelLayout);
+        homePanelLayout.setHorizontalGroup(
+            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homePanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(home)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        homePanelLayout.setVerticalGroup(
+            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(home)
+                .addGap(24, 24, 24))
+        );
+
+        javax.swing.GroupLayout StopsPanelLayout = new javax.swing.GroupLayout(StopsPanel);
+        StopsPanel.setLayout(StopsPanelLayout);
+        StopsPanelLayout.setHorizontalGroup(
+            StopsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StopsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(StopsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(StopsPanelLayout.createSequentialGroup()
+                        .addGroup(StopsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(journeyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(StopsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(accPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(routeUIPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel10))
+                .addGap(53, 53, 53)
+                .addComponent(homePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
+        );
+        StopsPanelLayout.setVerticalGroup(
+            StopsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StopsPanelLayout.createSequentialGroup()
+                .addGroup(StopsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(StopsPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGroup(StopsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(StopsPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(journeyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(StopsPanelLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(accPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(routeUIPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(StopsPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(homePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(112, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(StopsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(StopsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void sourceStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sourceStopActionPerformed
+        int id1 = stopsTable.getSelectedRow();
+        String SID = stopsTable.getValueAt(id1, 0).toString();
+        JOptionPane.showMessageDialog(null, SID);
+        routeJourney.setSourceID(SID);
+        this.setVisible(false);
+    }//GEN-LAST:event_sourceStopActionPerformed
+
+    private void destinationStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinationStopActionPerformed
+        int id2 = stopsTable.getSelectedRow();
+        String DID = stopsTable.getValueAt(id2, 0).toString();
+        JOptionPane.showMessageDialog(null, DID);
+        routeJourney.setDistinationID(DID);
+        this.setVisible(false);
+    }//GEN-LAST:event_destinationStopActionPerformed
+
+    private void selectStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectStopActionPerformed
+        int [] index = stopsTable.getSelectedRows();
+        Object [][] rowValue = new Object[index.length][5];
+        for(int i = 0; i< index.length; i++){
+            for(int y=0;y<5;y++){
+                rowValue[i][y] = stopsTable.getValueAt(index[i], y);
+            }            
+        }
+        routeJourney.setStops(rowValue);
+        this.setVisible(false);
+    }//GEN-LAST:event_selectStopActionPerformed
+
+    private void RouteStopsSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RouteStopsSelectActionPerformed
+        int [] index = stopsTable.getSelectedRows();
+        Object [][] rowValue = new Object[index.length][5];
+        for(int i = 0; i< index.length; i++){
+            for(int y=0;y<5;y++){
+                rowValue[i][y] = stopsTable.getValueAt(index[i], y);
+            }            
+        }
+//        Object [] rowValue = new Object[5];
+//        for(int i = 0; i< index.length; i++){
+//            rowValue[0] = stopsTable.getValueAt(index[i], 0);
+//            rowValue[1] = stopsTable.getValueAt(index[i], 1);
+//            rowValue[2] = stopsTable.getValueAt(index[i], 2);
+//            rowValue[3] = stopsTable.getValueAt(index[i], 3);
+//            rowValue[4] = stopsTable.getValueAt(index[i], 4);
+//        }
+        routeUI.setStops(rowValue);
+        this.setVisible(false);
+    }//GEN-LAST:event_RouteStopsSelectActionPerformed
+
+    private void setAccStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setAccStartActionPerformed
+        int id1 = stopsTable.getSelectedRow();
+        String SID = stopsTable.getValueAt(id1, 0).toString();
+        //JOptionPane.showMessageDialog(null, SID);
+        acc.setStart(SID);
+        this.setVisible(false);
+    }//GEN-LAST:event_setAccStartActionPerformed
+
+    private void setAccDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setAccDestinationActionPerformed
+        int id1 = stopsTable.getSelectedRow();
+        String DID = stopsTable.getValueAt(id1, 0).toString();
+        //JOptionPane.showMessageDialog(null, SID);
+        acc.setDestination(DID);
+        this.setVisible(false);
+    }//GEN-LAST:event_setAccDestinationActionPerformed
+
+    private void searchJStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJStartActionPerformed
+        int id1 = stopsTable.getSelectedRow();
+        String SID = stopsTable.getValueAt(id1, 0).toString();
+        //JOptionPane.showMessageDialog(null, SID);
+        SJourney.setSStaion(SID);
+        this.setVisible(false);
+    }//GEN-LAST:event_searchJStartActionPerformed
+
+    private void searchJEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJEndActionPerformed
+        int id1 = stopsTable.getSelectedRow();
+        String DID = stopsTable.getValueAt(id1, 0).toString();
+        //JOptionPane.showMessageDialog(null, SID);
+        SJourney.setDStaion(DID);
+        this.setVisible(false);
+    }//GEN-LAST:event_searchJEndActionPerformed
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ShowStops.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ShowStops.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ShowStops.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ShowStops.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ShowStops().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RouteStopsSelect;
+    private javax.swing.JPanel SJPanel;
+    private javax.swing.JPanel StopsPanel;
+    private javax.swing.JPanel accPanel;
+    private javax.swing.JButton destinationStop;
+    private javax.swing.JButton home;
+    private javax.swing.JPanel homePanel;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel journeyPanel;
+    private javax.swing.JPanel routeUIPanel;
+    private javax.swing.JButton searchJEnd;
+    private javax.swing.JButton searchJStart;
+    private javax.swing.JButton selectStop;
+    private javax.swing.JButton setAccDestination;
+    private javax.swing.JButton setAccStart;
+    private javax.swing.JButton sourceStop;
+    private javax.swing.JTable stopsTable;
+    // End of variables declaration//GEN-END:variables
+}

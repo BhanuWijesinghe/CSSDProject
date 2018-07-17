@@ -6,12 +6,13 @@
 package AccountPackage.DataManupulation;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import java.io.Serializable;
 
 /**
  *
  * @author Vanni Kotiyaa
  */
-public class Payment extends Cash {
+public class Payment extends Cash implements Serializable {
 
     /**
      * @return the paymentID
@@ -20,15 +21,14 @@ public class Payment extends Cash {
     private String paymentType;
     private String paymenAmount;
     private boolean isSuccessfull;
-    
-    Payment(){
-    this.isSuccessfull = false;
+
+    public Payment() {
+        this.isSuccessfull = false;
     }
-    
+
     public String getPaymentID() {
         return paymentID;
     }
-    
 
     /**
      * @param paymentID the paymentID to set
@@ -55,7 +55,7 @@ public class Payment extends Cash {
      * @return the paymenAmount
      */
     public double getPaymenAmount() {
-       return getAmount();
+        return getAmount();
     }
 
     /**
@@ -78,17 +78,12 @@ public class Payment extends Cash {
     public void setIsSuccessfull(boolean isSuccessfull) {
         this.isSuccessfull = isSuccessfull;
     }
-    
-     public Payment getIsSuccessfull() {
-        if(isIsSuccessfull()== true){
-            return this;    
+
+    public Payment getIsSuccessfull() {
+        if (isIsSuccessfull() == true) {
+            return this;
         }
         return null;
     }
-    
-     
-    
-    
-    
+
 }
-    

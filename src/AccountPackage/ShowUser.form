@@ -91,7 +91,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="J:\SHU\CSSD\icon b&amp;w\group (1).png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Show Books"/>
+        <Property name="text" type="java.lang.String" value="Show Users"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

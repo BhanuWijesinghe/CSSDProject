@@ -5,8 +5,9 @@
  */
 package cssdtransportsystem;
 
-import AccountPackage.MemberMenu;
+import AccountPackage.MainMenuForm;
 import GUI.Login;
+import Inspector_Machine.InspectorLogin;
 
 /**
  *
@@ -151,14 +152,14 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(727, 681));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        MemberMenu addf = new MemberMenu();
+        MainMenuForm addf = new MainMenuForm();
         addf.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -173,7 +174,7 @@ public class HomePage extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        Login ob = new Login();
+        InspectorLogin ob = new InspectorLogin();
         ob.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 

@@ -5,11 +5,13 @@
  */
 package AccountPackage.DataManupulation;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Vanni Kotiyaa
  */
-public class Transaction_Record {
+public class Transaction_Record implements Serializable{
 
     /**
      * @return the transaction_ID
