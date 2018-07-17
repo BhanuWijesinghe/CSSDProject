@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PaymentPackage;
+package PaymentPackage.Data;
 
 /**
  *
  * @author Bhanu
  */
-public class ExternalPaymentValidator {
+public class Tokens {
     
 }
