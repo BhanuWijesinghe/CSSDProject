@@ -90,7 +90,7 @@ public class ShowUser extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblshow);
 
         jButton1.setIcon(new javax.swing.ImageIcon("J:\\SHU\\CSSD\\icon b&w\\group (1).png")); // NOI18N
-        jButton1.setText("Show Books");
+        jButton1.setText("Show Users");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

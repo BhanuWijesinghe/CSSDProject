@@ -228,7 +228,7 @@ public class AddMember extends javax.swing.JFrame {
          String UserId = txtUserId.getText().toString();
          
          String Gender = comboGender.getSelectedItem().toString();
-         String ContactNumber = txtContactNumber.getText().toString();
+         int ContactNumber = Integer.parseInt(txtContactNumber.getText().toString());
          String Email = txtemail.getText().toString();
          String Address = txtAddress.getText().toString();
          String City = txtcity.getText().toString();

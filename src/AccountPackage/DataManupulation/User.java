@@ -20,7 +20,7 @@ public class User implements Serializable{
      private String userId ;
      
      private String gender ;
-     private String contactNumber ;
+     private int contactNumber ;
      private String email ;
      private String address ;
      private String city ;
@@ -46,7 +46,7 @@ public class User implements Serializable{
     /**
      * @return the contactNumber
      */
-    public String getContactNumber() {
+    public int getContactNumber() {
         return contactNumber;
     }
 
@@ -99,7 +99,7 @@ public class User implements Serializable{
    public void setGender(String genders) {
         this.gender = genders;
     }  
-   public void setContactNumber(String contactNumbers) {
+   public void setContactNumber(int contactNumbers) {
         this.contactNumber = contactNumbers;
     }
    public void setEmail(String emails) {

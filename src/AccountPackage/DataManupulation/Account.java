@@ -6,6 +6,7 @@
 package AccountPackage.DataManupulation;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,6 +23,7 @@ public class Account implements Serializable{
     private String username;
     private String password;
     private Transaction_History transactionHistory;
+    ArrayList<Account> accountList = new ArrayList();
     
     public String getAccountID() {
         return accountID;
@@ -85,18 +87,28 @@ public class Account implements Serializable{
     public void setTransactionHistory(Transaction_History transactionHistorys) {
         this.transactionHistory = transactionHistorys;
     }
-    
+     public ArrayList accountDeserialized(){
+        Datamanupulation dmp = new Datamanupulation();
+        ArrayList accountlist = dmp.accountDeserialization();
+        return accountlist;
+     }    
     public boolean checkCredentials(String usernames, String passwords) {
-        if(this.getUsername() == usernames){
-            if(this.getPassword() == passwords){
-                return true;
-            }
-        }
-        else {
-        return false;
-        }
+         
+        accountList = accountDeserialized();
         
-        return false;
+        for(Account acc:accountList){
+         if((acc.getUsername().equals(username)) && (acc.getPassword().equals(password))){
+             
+             return true;
+         }
+         else{
+           return false;
+         }
+        
+        }
+            
+        
+    return false;
     }
     
     public void debitBalance(double credits ) {
