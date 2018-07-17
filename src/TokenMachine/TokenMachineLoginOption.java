@@ -6,6 +6,7 @@
 package TokenMachine;
 
 import GUI.LoginClass;
+import TokenMachine.userUI.logedUserUI;
 import cssdtransportsystem.HomePage;
 import javax.swing.JOptionPane;
 
@@ -20,7 +21,7 @@ public class TokenMachineLoginOption extends javax.swing.JInternalFrame {
      */
     public TokenMachineLoginOption() {
         initComponents();
-        verifyLoginPanel.setVisible(false);
+        //verifyLoginPanel.setVisible(false);
         LoginPanel.setVisible(false);
     }
 
@@ -50,7 +51,6 @@ public class TokenMachineLoginOption extends javax.swing.JInternalFrame {
         loginButton = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
         reset = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
 
         loginUser.setText("Login With Username and Password");
         loginUser.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,7 @@ public class TokenMachineLoginOption extends javax.swing.JInternalFrame {
         confirmCode.setText("Confirm");
         verifyLoginPanel.add(confirmCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 232, 152, 46));
 
-        LoginPanel.add(verifyLoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 500, 100));
+        LoginPanel.add(verifyLoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 500, 210));
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel2.setText("Login With Username and Password");
@@ -143,31 +143,35 @@ public class TokenMachineLoginOption extends javax.swing.JInternalFrame {
         LoginPanel.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 200, 140, -1));
 
         reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
         LoginPanel.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 87, 33));
-        LoginPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(197, Short.MAX_VALUE)
+                .addContainerGap(177, Short.MAX_VALUE)
                 .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(516, 516, 516))
+                .addGap(34, 34, 34))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(794, Short.MAX_VALUE)))
+                    .addContainerGap(292, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(18, 18, 18)
@@ -197,19 +201,27 @@ public class TokenMachineLoginOption extends javax.swing.JInternalFrame {
         boolean value = false;
          String Username = username.getText().toString();
          String Password = new String(password.getPassword());
-         LoginClass loginClass = new LoginClass();
-         value=loginClass.validateInputs(Username, Password);
+         TokenMachineClass TMClass = new TokenMachineClass();
+         value=TMClass.login(Username, Password);
          System.out.println(value);
         
          if(value==true){
-             this.setVisible(false);
-             HomePage home = new HomePage();
-             home.setVisible(true);
-             
+             TMClass.setLoggedInAccount(Username);
+             logedUserUI userUI = new logedUserUI(this); 
+             userUI.setVisible(true);
+             getParent().add(userUI);
+             getParent().remove(this);
          }else{
-             ////////////////////
+             JOptionPane.showMessageDialog(null, "Given Username or Password is invalid");
+             username.setText("");
+             password.setText("");
          }
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        username.setText("");
+        password.setText("");
+    }//GEN-LAST:event_resetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -222,7 +234,6 @@ public class TokenMachineLoginOption extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton loginUser;
     private javax.swing.JButton loginVerifyCode;
