@@ -5,6 +5,7 @@
  */
 package Route.Stops;
 
+import Inspector_Machine.Action;
 import Route.JourneyRecord.RouteJourneys;
 import Route.RouteUI;
 import java.util.ArrayList;
@@ -85,6 +86,10 @@ public class ShowStops extends javax.swing.JFrame {
         StopsPanel.remove(routeUIPanel);
 //        StopsPanel.repaint();
 //        StopsPanel.revalidate();
+    }
+
+    public ShowStops(Action aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
