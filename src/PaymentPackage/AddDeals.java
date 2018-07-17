@@ -8,20 +8,27 @@ import cssdtransportsystem.HomePage;
 import PaymentPackage.Data.Deals;
 import PaymentPackage.Data.DataSerial;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Bhanu
  */
 public class AddDeals extends javax.swing.JFrame {
-
+    DefaultTableModel dm;
     /**
      * Creates new form AddDeals
      */
     public AddDeals() {
         initComponents();
     }
-
+    
+//    private void populate(String id,String criteria,String discounts){
+//        dm=(DefaultTableModel) jTable1.getModel();
+//        String [] rowData={id,criteria,discounts};
+//        jTable1.addR
+//        
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,6 +65,12 @@ public class AddDeals extends javax.swing.JFrame {
                 "Deal ID", "Deal Criteria", "Discount"
             }
         ));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Add Deal");
@@ -151,6 +164,16 @@ public class AddDeals extends javax.swing.JFrame {
             i++;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        String id = jTable1.getValueAt(jTable1.getSelectedRow(),0).toString();                        
+        String criteria = jTable1.getValueAt(jTable1.getSelectedRow(),1).toString();                        
+        String discount = jTable1.getValueAt(jTable1.getSelectedRow(),2).toString();
+        
+        jTextField3.setText(id);
+        jTextField1.setText(criteria);
+        jTextField2.setText(discount);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments

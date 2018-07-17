@@ -43,16 +43,16 @@ public class DataSerial {
     
     //-------------------------------
     
-    public void TicketsSerialization (Tickets ticket) {
+    public void token1Serialization (Tokens token) {
     
         try{
             
-            FileOutputStream ticketFileOut = new FileOutputStream("Tickets.txt",true) ;
-            ObjectOutputStream outputStream = new ObjectOutputStream (ticketFileOut);
-            outputStream.writeObject(ticket);
+            FileOutputStream token1FileOut = new FileOutputStream("Token1.txt",true) ;
+            ObjectOutputStream outputStream = new ObjectOutputStream (token1FileOut);
+            outputStream.writeObject(token);
             
             outputStream.close();
-            ticketFileOut.close();
+            token1FileOut.close();
             
         }catch(IOException i){
         
@@ -86,17 +86,17 @@ public class DataSerial {
         return dealList;
     }
      
- public ArrayList ticketDeserialization (){
+ public ArrayList token1Deserialization (){
         
         try{
             
-            FileInputStream ticketFileInput = new FileInputStream ("Tickets.txt");
-            while(ticketFileInput.available()> 0 ){
-                ObjectInputStream ticketInput = new ObjectInputStream (ticketFileInput);
-                Tickets ticket = (Tickets) ticketInput.readObject();
+            FileInputStream token1FileInput = new FileInputStream ("Token1.txt");
+            while(token1FileInput.available()> 0 ){
+                ObjectInputStream token1Input = new ObjectInputStream (token1FileInput);
+                Tokens token = (Tokens) token1Input.readObject();
                 
-                if(ticket != null){
-                    ticketList.add(ticket);
+                if(token != null){
+                    tokenList.add(token);
                 
                 }
             }
@@ -106,7 +106,7 @@ public class DataSerial {
             e.printStackTrace();
         }
     
-        return ticketList;
+        return tokenList;
     }
      
 }

@@ -4,36 +4,23 @@
  * and open the template in the editor.
  */
 package PaymentPackage;
-import java.sql.*;
+
 import javax.swing.*;
+import java.util.ArrayList;
+import PaymentPackage.Data.DataSerial;
+import PaymentPackage.Data.Tokens;
 /**
  *
  * @author Bhanu
  */
-public class MyTicket extends Payment {
+public class MyTokens extends Payment {
 
     /**
      * Creates new form MakePayment
      */
-    public MyTicket() {
+    public MyTokens() {
         initComponents();
-        loaded = true;
         
-        tableload(myTicket,"select TicketID,from,to,departtime,arrivetime,ddate,adate FROM tickets where user= ");
-        
-        
-        try{
-            Statement stmt1 = con.createStatement( );
-            ResultSet a = stmt1.executeQuery("select user from Tickets");
-            for (int i=0; a.next(); i++)
-                {
-                    tickets.addElement( a.getString(i) );
-                }
-        }
-        catch(SQLException se)
-        {
-            JOptionPane.showMessageDialog(this, "Unable to Retrieve from DB.","Database Retrieve Error", JOptionPane.ERROR_MESSAGE);
-        }
     }
 
     /**
@@ -49,26 +36,27 @@ public class MyTicket extends Payment {
         jScrollPane2 = new javax.swing.JScrollPane();
         myTicket = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        jLabel1.setText("MY TICKETS");
+        jLabel1.setText("MY Tokens");
 
         myTicket.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Ticket ID", "From", "To", "Departing time", "Arrival time", "Departing Date", "Arrival Date", "Type", "mode"
+                "Token ID", "Source", "Destination", "Time", "Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -81,6 +69,13 @@ public class MyTicket extends Payment {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Load Tokens");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -97,8 +92,10 @@ public class MyTicket extends Payment {
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jButton2)))
+                        .addGap(158, 158, 158)
+                        .addComponent(jButton2)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton1)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,17 +106,35 @@ public class MyTicket extends Payment {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ArrayList <PaymentPackage.Data.Tokens> tokenList= null;
+        DataSerial  showTokens = new DataSerial();
+        tokenList = showTokens.token1Deserialization();
+        int i =0;
+        for(PaymentPackage.Data.Tokens mk :tokenList){
+            myTicket.setValueAt(mk.getTokenId(), i, 0);
+            myTicket.setValueAt(mk.getSourceStop(), i, 1);
+            myTicket.setValueAt(mk.getDestStop(), i, 2);
+            myTicket.setValueAt(mk.getTimeOfJourney(), i, 3);
+            myTicket.setValueAt(mk.getDateOfJouney(), i, 4);            
+            i++;
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
