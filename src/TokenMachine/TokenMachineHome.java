@@ -5,6 +5,8 @@
  */
 package TokenMachine;
 
+import TokenMachine.userUI.guestUI;
+
 /**
  *
  * @author Shakuni
@@ -29,7 +31,7 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         Login = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        guest = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Open Sans Extrabold", 1, 48)); // NOI18N
@@ -44,8 +46,13 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
-        jButton1.setText("Guest");
+        guest.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
+        guest.setText("Guest");
+        guest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 0, 24)); // NOI18N
         jLabel2.setText("Lets go on an adventure");
@@ -64,7 +71,7 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(guest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(197, Short.MAX_VALUE))
         );
@@ -78,7 +85,7 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
                 .addGap(86, 86, 86)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(guest, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(121, Short.MAX_VALUE))
         );
 
@@ -93,10 +100,17 @@ public class TokenMachineHome extends javax.swing.JInternalFrame {
         getParent().remove(this);
     }//GEN-LAST:event_LoginActionPerformed
 
+    private void guestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestActionPerformed
+        guestUI gUI = new guestUI();
+        gUI.setVisible(true);
+        getParent().add(gUI);
+        getParent().remove(this);
+    }//GEN-LAST:event_guestActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Login;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton guest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
