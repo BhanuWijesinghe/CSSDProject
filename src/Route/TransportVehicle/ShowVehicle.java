@@ -33,6 +33,7 @@ public class ShowVehicle extends javax.swing.JFrame {
         }
         this.routeUI=frame;
         vehiclePanel.add(routeVehiclePanel);
+        vehiclePanel.remove(homePanel);
     }
     
     public ShowVehicle() {
@@ -48,6 +49,7 @@ public class ShowVehicle extends javax.swing.JFrame {
             i++;
         }
         vehiclePanel.remove(routeVehiclePanel);
+        vehiclePanel.add(homePanel);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,6 +66,8 @@ public class ShowVehicle extends javax.swing.JFrame {
         routeVehiclePanel = new javax.swing.JPanel();
         vehicleSelect = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        homePanel = new javax.swing.JPanel();
+        home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,6 +122,30 @@ public class ShowVehicle extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Open Sans Extrabold", 1, 48)); // NOI18N
         jLabel10.setText("# TravelAnyWhere");
 
+        home.setText("Home");
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
+        homePanel.setLayout(homePanelLayout);
+        homePanelLayout.setHorizontalGroup(
+            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homePanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(home)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        homePanelLayout.setVerticalGroup(
+            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(home)
+                .addGap(24, 24, 24))
+        );
+
         javax.swing.GroupLayout vehiclePanelLayout = new javax.swing.GroupLayout(vehiclePanel);
         vehiclePanel.setLayout(vehiclePanelLayout);
         vehiclePanelLayout.setHorizontalGroup(
@@ -126,21 +154,25 @@ public class ShowVehicle extends javax.swing.JFrame {
                 .addGroup(vehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(vehiclePanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel10))
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(homePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(vehiclePanelLayout.createSequentialGroup()
                         .addGap(126, 126, 126)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(vehiclePanelLayout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(routeVehiclePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap())
         );
         vehiclePanelLayout.setVerticalGroup(
             vehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(vehiclePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10)
-                .addGap(29, 29, 29)
+                .addGroup(vehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(homePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(routeVehiclePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,8 +185,8 @@ public class ShowVehicle extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(vehiclePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addComponent(vehiclePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,6 +215,10 @@ public class ShowVehicle extends javax.swing.JFrame {
         routeUI.setVehicles(rowValue);
         this.setVisible(false);
     }//GEN-LAST:event_vehicleSelectActionPerformed
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,6 +256,8 @@ public class ShowVehicle extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton home;
+    private javax.swing.JPanel homePanel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel routeVehiclePanel;

@@ -33,6 +33,11 @@ public class guestUI extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
 
         searchJourney.setText("Search Journey");
+        searchJourney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJourneyActionPerformed(evt);
+            }
+        });
 
         createAcc.setText("Create Account");
 
@@ -77,6 +82,13 @@ public class guestUI extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchJourneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJourneyActionPerformed
+        searchJourney SJourney = new searchJourney();
+        SJourney.setVisible(true);
+        getParent().add(SJourney);
+        getParent().remove(this);
+    }//GEN-LAST:event_searchJourneyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
